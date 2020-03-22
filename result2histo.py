@@ -15,7 +15,7 @@ def load_file(input_file):
     return pd.DataFrame(loaded)
 
 def plot_histogram(df, out_file="hist.png"):
-    plt.hist(x=df['count'])
+    plt.hist(x=df.sort_values(by=['group'])['count'], bins=df['count'].size)
     plt.savefig(out_file)
 
 if __name__ == "__main__":
