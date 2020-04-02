@@ -11,11 +11,11 @@ def load_file(input_file):
         for jline in jfile:
             load_dict = {}
             data = json.loads(jline)
-            loaded.append({'group' : data['group'], 'count' : data['count']})
+            loaded.append({'x' : data['x'], 'y' : data['y']})
     return pd.DataFrame(loaded)
 
 def plot_histogram(df, out_file="hist.png"):
-    plt.hist(x=df.sort_values(by=['group'])['count'], bins=df['count'].size)
+    plt.hist(x=df.sort_values(by=['x'])['x'], bins=df['x'].size, weights=df.sort_values(by=['x'])['y'])
     plt.savefig(out_file)
 
 if __name__ == "__main__":
