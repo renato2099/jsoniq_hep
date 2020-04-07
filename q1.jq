@@ -1,3 +1,4 @@
+declare variable $inputPath as string? external;
 let $bucketWidth := (2000 - 0) div 100.0
 let $bucketCenter := $bucketWidth div 2
 for $i in root-file("/mnt/scratch/muellein/root-rumble/Run2012B_SingleMu_small.root", "Events")
